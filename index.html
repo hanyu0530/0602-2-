@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>淡江教育科技太空探險家</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <div id="gameContainer">
+      <canvas id="gameCanvas"></canvas>
+      <video id="videoElement" autoplay playsinline></video>
+      <div id="gameInfo">
+          <p>操作說明：</p>
+          <p>- 移動手掌控制飛船</p>
+          <p>- 握拳發射子彈</p>
+          <p>- 收集教育科技知識點</p>
+      </div>
+      <div id="gameTitle">
+          <h2>淡江教育科技太空探險家</h2>
+          <p>點擊開始遊戲</p>
+      </div>
+    </div>
+    
+    <!-- 引入 MediaPipe -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils"></script>
+    
+    <!-- 遊戲腳本 -->
+    <script src="game.js"></script>
+  </body>
+</html>

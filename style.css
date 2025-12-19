@@ -1,0 +1,332 @@
+/* 基本樣式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(135deg, #000428, #004e92);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Orbitron', "Microsoft JhengHei", sans-serif;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 添加星空背景 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px);
+    background-size: 550px 550px, 350px 350px;
+    background-position: 0 0, 40px 60px;
+    z-index: -1;
+    will-change: transform;
+}
+
+@keyframes twinkle {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-550px); }
+}
+
+/* 遊戲容器 */
+#gameContainer {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+/* 遊戲畫布 */
+#gameCanvas {
+    background-color: #000;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    border-radius: 8px;
+}
+
+/* 遊戲信息面板 */
+#gameInfo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #00ffff;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    width: 200px;
+}
+
+#gameInfo h3 {
+    color: #00ffff;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    text-align: center;
+}
+
+#gameInfo p {
+    color: #fff;
+    margin: 5px 0;
+    font-size: 14px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+    line-height: 1.4;
+}
+
+/* 遊戲標題 */
+#gameTitle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00ffff;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+#gameTitle h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    background: linear-gradient(45deg, #00ffff, #0066ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#gameTitle p {
+    color: #fff;
+    font-size: 18px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#gameTitle p:hover {
+    color: #00ffff;
+    transform: scale(1.05);
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+/* 遊戲說明 */
+.game-instructions {
+    color: #ccc;
+    text-align: center;
+    font-size: 16px;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+/* 按鈕樣式 */
+.game-button {
+    background: linear-gradient(45deg, #00ffff, #0066ff);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.game-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+    background: linear-gradient(45deg, #0066ff, #00ffff);
+}
+
+/* 分數顯示 */
+.score-display {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: #00ffff;
+    font-size: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+/* 知識點顯示 */
+.knowledge-display {
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    color: #00ffff;
+    font-size: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+/* 等級顯示 */
+.level-display {
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    color: #00ffff;
+    font-size: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+/* 進度條 */
+.progress-bar {
+    position: absolute;
+    top: 100px;
+    left: 10px;
+    width: 200px;
+    height: 10px;
+    background-color: rgba(0, 255, 255, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #00ffff, #0066ff);
+    transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* 效果提示 */
+.effect-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #00ffff;
+    font-size: 24px;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    animation: fadeOut 2s ease-out;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+}
+
+/* 問題界面 */
+.question-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+.question-title {
+    color: #00ffff;
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+.question-text {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.option-button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    color: #00ffff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.option-button:hover {
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.timer {
+    color: #00ffff;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+.timer.warning {
+    color: #ff4444;
+    animation: pulse 1s infinite;
+    text-shadow: 0 0 10px rgba(255, 68, 68, 0.8);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* 攝像頭預覽 */
+#videoElement {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 160px;
+    height: 120px;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    border-radius: 8px;
+    opacity: 0.8;
+    z-index: 100;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.2);
+    margin-top: 10px;
+}
