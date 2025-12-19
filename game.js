@@ -39,18 +39,21 @@ const stars = Array.from({ length: 200 }, () => ({
     brightness: Math.random() * 0.5 + 0.5
 }));
 
-// 教育科技知識點
+// 資訊科學知識點（更新版）
 const knowledgeItems = [
-    { name: "數位學習設計", points: 5, color: '#4CAF50', speed: 2, health: 1, isCorrect: true },
-    { name: "科技融入教學", points: 5, color: '#2196F3', speed: 3, health: 1, isCorrect: true },
-    { name: "學習分析", points: 5, color: '#9C27B0', speed: 2, health: 2, isCorrect: true },
-    { name: "互動式教材", points: 5, color: '#FF9800', speed: 4, health: 1, isCorrect: true },
-    { name: "AR/VR教育", points: 5, color: '#E91E63', speed: 2, health: 3, isCorrect: true },
-    { name: "死記硬背", points: -5, color: '#FF0000', speed: 3, health: 1, isCorrect: false },
-    { name: "填鴨式教學", points: -5, color: '#FF0000', speed: 4, health: 1, isCorrect: false },
-    { name: "機械式學習", points: -5, color: '#FF0000', speed: 2, health: 2, isCorrect: false },
-    { name: "被動學習", points: -5, color: '#FF0000', speed: 3, health: 1, isCorrect: false },
-    { name: "單向灌輸", points: -5, color: '#FF0000', speed: 2, health: 2, isCorrect: false }
+    // 核心正確知識點
+    { name: "程式設計(C/Java)", points: 5, color: '#4CAF50', speed: 2, health: 1, isCorrect: true },
+    { name: "資料結構與演算法", points: 5, color: '#2196F3', speed: 3, health: 1, isCorrect: true },
+    { name: "系統架構與作業系統", points: 5, color: '#9C27B0', speed: 2, health: 2, isCorrect: true },
+    { name: "網路與資料庫", points: 5, color: '#FF9800', speed: 4, health: 1, isCorrect: true },
+    { name: "機器學習概論", points: 5, color: '#E91E63', speed: 2, health: 3, isCorrect: true },
+
+    // 常見錯誤或不良實務
+    { name: "邏輯錯誤", points: -5, color: '#FF0000', speed: 3, health: 1, isCorrect: false },
+    { name: "死循環程式碼", points: -5, color: '#FF0000', speed: 4, health: 1, isCorrect: false },
+    { name: "資料洩漏", points: -5, color: '#FF0000', speed: 2, health: 2, isCorrect: false },
+    { name: "硬編碼", points: -5, color: '#FF0000', speed: 3, health: 1, isCorrect: false },
+    { name: "無效程式碼", points: -5, color: '#FF0000', speed: 2, health: 2, isCorrect: false }
 ];
 
 // 特殊道具
@@ -86,35 +89,44 @@ const powerUpTypes = [
    
 ];
 
-// 教育科技問題庫
+// 北市大資訊科學系問題庫
 const questions = [
     {
-        question: "數位學習相較於傳統教學模式，其核心特性為何？",
-        options: ["以面對面互動為主", "藉由資訊科技促進自主與彈性學習", "完全依賴教師指導", "不需任何教學規劃"],
+        question: "資料結構課程中，哪種資料結構最適合先進先出（FIFO）操作？",
+        options: ["堆疊 Stack", "佇列 Queue", "樹 Tree", "圖 Graph"],
         correct: 1
     },
     {
-        question: "在教學設計理論中，課程設計的核心目的主要在於？",
-        options: ["提高學生標準化測驗成績", "系統化規劃教學活動以提升學習成效", "精簡教師教學時間與負擔", "增加作業以加強練習"],
+        question: "離散數學中，下列哪一項不是集合運算的基本操作？",
+        options: ["交集 Intersection", "聯集 Union", "差集 Difference", "迴圈 Loop"],
+        correct: 3
+    },
+    {
+        question: "在演算法課程中，若程式運行時間隨輸入資料量呈線性增加，其時間複雜度為何？",
+        options: ["O(1)", "O(n)", "O(n^2)", "O(log n)"],
         correct: 1
     },
     {
-        question: "下列何者不屬於教育科技的應用範疇？",
-        options: ["數位教學內容開發", "教學管理與學習分析平台建置", "傳統粉筆黑板授課方式", "線上學習系統與互動模組設計"],
-        correct: 2
+        question: "作業系統課程中，哪一項是作業系統的主要功能？",
+        options: ["管理硬體資源", "編寫應用程式", "設計網頁", "建立資料庫"],
+        correct: 0
     },
     {
-        question: "相較於傳統教材，數位教材的主要優勢為何？",
-        options: ["可完全取代教師授課", "具高互動性與多媒體整合能力", "製作過程不需專業知識", "完全不需網路或設備支援"],
+        question: "C 程式設計與 Java 程式設計課程主要學習的技能是？",
+        options: ["資料分析與可視化", "程式語言與邏輯思考", "網頁設計與前端互動", "微處理機介面設計"],
         correct: 1
     },
     {
-        question: "教育研究的目的是什麼？",
-        options: ["增加學校收入", "提高教師工資", "改進教育實踐", "減少學生數量"],
-        correct: 2
+        question: "數位電子學或數位系統設計課程主要涉及哪一領域？",
+        options: ["電腦硬體與邏輯電路", "人工智慧與機器學習", "軟體工程流程", "資料庫設計"],
+        correct: 0
+    },
+    {
+        question: "資訊專題 (I) 是什麼性質的課程？",
+        options: ["專題總整課程", "理論演算法課程", "程式語言基礎課程", "網路概論課程"],
+        correct: 0
     }
 ];
-
 // 粒子類別
 class Particle {
     constructor(x, y, color) {
