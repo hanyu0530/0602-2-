@@ -42,9 +42,9 @@ const stars = Array.from({ length: 200 }, () => ({
 // 資訊科學知識點（更新版）
 const knowledgeItems = [
     // 核心正確知識點
-    { name: "程式設計(C/Java)", points: 5, color: '#4CAF50', speed: 2, health: 1, isCorrect: true },
-    { name: "資料結構與演算法", points: 5, color: '#2196F3', speed: 3, health: 1, isCorrect: true },
-    { name: "系統架構與作業系統", points: 5, color: '#9C27B0', speed: 2, health: 2, isCorrect: true },
+    { name: "程式設計", points: 5, color: '#4CAF50', speed: 2, health: 1, isCorrect: true },
+    { name: "資料結構", points: 5, color: '#2196F3', speed: 3, health: 1, isCorrect: true },
+    { name: "系統與作業系統", points: 5, color: '#9C27B0', speed: 2, health: 2, isCorrect: true },
     { name: "網路與資料庫", points: 5, color: '#FF9800', speed: 4, health: 1, isCorrect: true },
     { name: "機器學習概論", points: 5, color: '#E91E63', speed: 2, health: 3, isCorrect: true },
 
