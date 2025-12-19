@@ -253,7 +253,7 @@ class Spaceship {
         ctx.font = `bold ${14 + (this.level - 1) * 2}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
-        ctx.fillText('TKU', 0, 0);
+        ctx.fillText('UT', 0, 0);
 
         // 護盾效果 (大小隨等級變化)
         if (this.shield) {
